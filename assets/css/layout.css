@@ -1,0 +1,6 @@
+body {
+  margin: 0; }
+  body #layout-main {
+    margin: 1rem;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif; }

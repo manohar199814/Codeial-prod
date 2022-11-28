@@ -1,0 +1,40 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+.btn-floating {
+    --mdb-btn-width: 2.3125rem;
+    --mdb-btn-height: 2.3125rem;
+    --mdb-btn-icon-width: 2.3125rem;
+    --mdb-btn-icon-line-height: 2.3125rem;
+    --mdb-btn-width-lg: 2.8125rem;
+    --mdb-btn-height-lg: 2.8125rem;
+    --mdb-btn-icon-width-lg: 2.8125rem;
+    --mdb-btn-icon-line-height-lg: 2.8125rem;
+    --mdb-btn-width-sm: 1.8125rem;
+    --mdb-btn-height-sm: 1.8125rem;
+    --mdb-btn-icon-width-sm: 1.8125rem;
+    --mdb-btn-icon-line-height-sm: 1.8125rem;
+    width: var(--mdb-btn-width);
+    height: var(--mdb-btn-height);
+    --mdb-btn-border-radius: 50%;
+    border-radius: var(--mdb-btn-border-radius);
+    padding: 0;
+    position: relative;
+
+    i{
+        vertical-align:bottom;
+    }
+}

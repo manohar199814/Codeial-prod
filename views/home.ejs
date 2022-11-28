@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/home.css">
+<div id="home-container">
+    <section id="feed-posts">
+        <h4>Posts</h4>
+    
+        <% if(locals.user){  console.log('in home ejs')%>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea name="content" id="" cols="30" rows="5" placeholder="Type here...." required></textarea>
+                <input type="submit" value="Post">
+            </form>
+        <% } %>
+        
+    
+        <div id="post-list-container">
+            <ul>
+                <% for(let i=0;i< posts.length; i++) { %>
+                    <%- include('_post',{i:i})-%>
+                <% } %>
+            </ul>
+        </div>  
+    </section>
+    
+    
+    <section id="user-friends">
+        <h4>Friends</h4>
+        <% for(u of all_users) { %>
+            <p>
+                <a href="/user/profile/<%= u.id %>"> <%= u.name %></a>
+            </p>
+        <% } %>
+    </section>
+
+
+    <%- include('_chat_box') -%>
+</div>   
+
+
+<script src="/js/home_comments.js">
+    
+</script>
+
+<script src="/js/home_posts.js">
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" integrity="sha512-YeeA/Qxn5hYdkukScTCNNOhTrv1C2RubAGButJ1rmgQwZf/HdRaCGl+JAVkqsqaNRaYNHdheiuKKuPf9mDcqKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user)  { %>
+<script>
+    new ChatEngine('user-chat-box','<%= locals.user.email %>');
+</script>
+<% } %>
+
+
